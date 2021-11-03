@@ -6,7 +6,7 @@ module.exports = {
     let url = [];
     let pokeData = [];
     let types = [];
-    const { data } = await axios(`https://pokeapi.co/api/v2/pokemon`);
+    const { data } = await axios(`https://pokeapi.co/api/v2/pokemon?limit=40`);
 
     url = data.results.map((el) => {
       return el.url;
@@ -30,10 +30,9 @@ module.exports = {
         speed: data.stats[5].base_stat,
         height: data.height,
         weight: data.weight,
-
         imgShiny: data.sprites.front_shiny,
-        //  gif:data.sprites.versions.generation-v.black-white.animated.front_default,
-        //  gifSginy:data.sprites.versions.generation-v.black-white.animated.front_shiny
+        gif:data.sprites.versions["generation-v"]["black-white"].animated.front_default,
+        gifShiny:data.sprites.versions["generation-v"]["black-white"].animated.front_shiny
       };
       pokeData.push(pokemonParse);
     }
