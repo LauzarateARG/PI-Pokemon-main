@@ -2,7 +2,7 @@ const { default: axios } = require("axios");
 const { Router } = require("express");
 // Importar todos los routers;
 // Ejemplo: const authRouter = require('./auth.js');
-const { getApiData, getDBData, getTipo } = require("../routeModels/models.js");
+const { getApiData, getDBData, getTipo, getDBTypes } = require("../routeModels/models.js");
 
 const { Tipo, Pokemon } = require("../db");
 const router = Router();
