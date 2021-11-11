@@ -16,7 +16,6 @@ export default function SearchBar() {
   }
 
   function handlerSubmit(e) {
-    e.preventDefault();
     dispatch(searchPokemon(name));
   }
 

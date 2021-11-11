@@ -34,10 +34,11 @@ export default function CardContain() {
 
   useEffect(() => {
     setPokemonFiltred(filtered(allPokemons,filter))
+    console.log("todos los pokemons",pokemonFiltred)
   },[useSelector(state => state.filters)]);
 
+
   useEffect(() => {
-    dispatch(getPokemons());
     dispatch(refreshDetail([]))
   },[dispatch]);
 

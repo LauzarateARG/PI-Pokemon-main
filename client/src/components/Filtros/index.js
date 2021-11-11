@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes, applyFilter } from "../../actions";
+import { getTypes, applyFilter,getPokemons } from "../../actions";
 import { useState, useEffect } from "react";
 
 export default function Filtros() {
@@ -28,13 +28,15 @@ export default function Filtros() {
     });
   }
 
-  function handlerReset(){
+  function handlerReset(e){
     setFilter({
       alf: null,
       attack: null,
       origin: null,
       type: "",
     })
+    dispatch(applyFilter(filter))
+    dispatch(getPokemons())
   }
 
   //-------------------------------------------------------------------------------------------------------------
@@ -45,7 +47,7 @@ export default function Filtros() {
 
   return (
     <form onSubmit={(e) => handlerSubmit(e)}>
-      <button onClick={handlerReset}> volver a cargar pokemon </button>
+      <button onClick={e=>handlerReset(e )}> volver a cargar pokemon </button>
 
       <select name="fill" onChange={(e) => handlerChange(e)}>
         <option value={null}> All Pokemons </option>
@@ -56,9 +58,9 @@ export default function Filtros() {
       </select>
 
       <select name="origin" onChange={(e) => handlerChange(e)}>
-        <option value={null}> All Pokemons </option>
-        <option value={true}> Mis pokemons </option>
-        <option value={false}> Pokemons </option>
+        <option value="id"> All Pokemons </option>
+        <option value="Db"> Mis pokemons </option>
+        <option value="api"> Pokemons </option>
       </select>
 
       <select name="type" onChange={(e) => handlerChange(e)}>

@@ -71,7 +71,7 @@ export default function PokemonCreate() {
     setErrors(
       validate({input})
     );
-    console.log(input);
+    console.log(errors);
   }
 
   function handlerChange(e) {
@@ -80,7 +80,7 @@ export default function PokemonCreate() {
       type: [...input.type, e.target.value],
     });
     setErrors(input);
-    console.log(input);
+    console.log(errors);
   }
 
   function handlerDelet(e) {

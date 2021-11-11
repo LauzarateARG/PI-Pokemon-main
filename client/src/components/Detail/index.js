@@ -21,8 +21,8 @@ export default function Detail(props) {
         <h2>ataque: {myPokemon[0].attack}</h2>
         <h2>defensa: {myPokemon[0].defense}</h2>
         <h2>velocidad: {myPokemon[0].speed}</h2>
-        <h2>altura: {(myPokemon[0].height/10)+" m"}</h2>
-        <h2>peso: {myPokemon[0].weight}</h2>
+        <h2>altura: {myPokemon[0].height/10} M </h2>
+        <h2>peso: {myPokemon[0].weight} kg</h2>
         <h2>
           {" "}
           tipos :{" "}
