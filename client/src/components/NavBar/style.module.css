@@ -1,0 +1,23 @@
+.nav {
+    display: flex;
+    flex-direction: row;
+  background-color: #ee1b25;
+  width: 100%;
+  height: 100px;
+  padding: 10px 10px 0;
+}
+.logo{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    top: 35px;
+}
+.link{
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    right: 10px;
+    top: 35px;
+}

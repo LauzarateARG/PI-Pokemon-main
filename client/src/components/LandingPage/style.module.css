@@ -5,26 +5,31 @@
     height: 100%;
     justify-content: center;
     align-items: center;
-    background-color: #202020;
+    background-image: url("../../assets/img/fondo.jpeg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
 }
 .contain{
     display: flex;
     flex-direction: column;
 }
 .title{
-    color: white;
+    color: #FFCB05;
     position: absolute;
     top: 100px;
+    right: 200px;
+    font-size:x-large
 }
 .btn{
     position: absolute;
     bottom: 100px;
     border-radius: 99px;
     border: none;
-    background-color: green;
+    background-color: #FFFFFF;
     width: 150px;
     height: 36px;
-    color: #FFFFFF;
+    color: black;
     font-size: 21px;
     font-style: oblique;
     text-transform: none;
@@ -38,7 +43,7 @@ button span{
     width: 100%;
     height: 100%;
     border-radius: 99px;
-    background-color: rgba(255, 105, 180, 0.609);
+    background-color: #ee1b25;
     top: 0;
     left:-100%;
     transition: .3s;
@@ -49,7 +54,7 @@ button span{
 }
 
 .btn:hover {
-    color:black;
-    background-color: rgba(255, 105, 180, 0.726);
+    color:white;
+    background-color: #ee1b25;
 
 }

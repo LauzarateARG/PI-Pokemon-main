@@ -22,7 +22,6 @@ router.get("/pokemons", async (req, res) => {
 
   const pokeInfo = await getAllPokemons();
 
-  console.log(pokeInfo);
   if (name) {
     let pokemonName = await pokeInfo.filter((el) =>
       el.name.toLowerCase().includes(name.toLowerCase())
@@ -57,7 +56,6 @@ router.get("/tipos", async (req, res) => {
       });
     });
     const pokeTiposDB = await Tipo.findAll();
-    console.log(pokeTiposDB);
     res.status(200).send(pokeTiposDB);
   } catch (error) {}
 });

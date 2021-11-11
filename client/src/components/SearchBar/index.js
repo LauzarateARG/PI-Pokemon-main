@@ -12,6 +12,7 @@ export default function SearchBar() {
   function handlerInputChange(e) {
     e.preventDefault();
     setName(e.target.value);
+    console.log(name)
   }
 
   function handlerSubmit(e) {
@@ -22,15 +23,13 @@ export default function SearchBar() {
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <div>
-      <input
-        type="text"
-        placeholder="Buscar..."
-        onChange={(e) => handlerInputChange(e)}
-      />
+        <input
+          type="text"
+          placeholder="Buscar..."
+          onChange={(e) => handlerInputChange(e)}
+        />
 
-      <button typ="submit" onClick={(e) => handlerSubmit(e)}>
-          Buscar
-      </button>
+        <button type="submit" onClick={(e) => handlerSubmit(e)}>Buscar</button>
     </div>
   );
 }

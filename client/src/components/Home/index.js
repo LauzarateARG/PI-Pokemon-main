@@ -1,8 +1,8 @@
 import React from "react";
-import { useState, useEffect, Fragment } from "react";
+import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getPokemons, getTypes } from "../../actions";
-import { Link } from "react-router-dom";
+import { getPokemons,  } from "../../actions";
+import styles from "./style.module.css";
 
 //----------------------Componentes-------------------------------
 import CardContain from "../CardContain";
@@ -15,14 +15,6 @@ export default function Home() {
   const dispatch = useDispatch();
   const allPokemons = useSelector((state) => state.pokemons);
 
-  //--------------------------------------------- funciones ------------------------------------------
-
-  // function handleClick(e) {
-  //   e.preventDefault();
-  //   dispatch(getPokemons());
-  // }
-
-  //----------------------------------------------------------------------------------------------------
 
   useEffect(() => {
     dispatch(getPokemons());
@@ -36,12 +28,11 @@ export default function Home() {
     )
   }else{
         return (
-      <div>
-        <h1> Pokemons </h1>
-
-        <Link to="/pokemon"> Crear Pokemon </Link>
+      <div className = {styles.Home}>
         <div>
-          <Filtros />
+          <Filtros 
+          allPokemons={allPokemons}
+          />
           <SearchBar />
         </div>
         <div>

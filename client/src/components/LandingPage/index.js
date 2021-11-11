@@ -11,7 +11,7 @@ function landingPage() {
       </span>
       <span>
         <Link to="/home">
-          <button className={styles.btn}> Continuar </button>
+          <button className={styles.btn}> Ingresar </button>
         </Link>
       </span>
       </div>

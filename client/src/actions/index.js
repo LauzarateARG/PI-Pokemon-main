@@ -16,53 +16,57 @@ export function getTypes() {
       return dispath({
         type: "GET_TYPE",
         payload: json.data,
-      }); 
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
   };
 }
-export function searchPokemon(name){
-  return async function(dispath){
+export function searchPokemon(name) {
+  return async function (dispath) {
     try {
-      var json = await axios.get("http://localhost:3001/pokemons?name=" + name)
+      var json = await axios("http://localhost:3001/pokemons?name=" + name);
       return dispath({
-        type:"GET_NAME_POKEMON",
-        payload: json.data
-      })
+        type: "GET_NAME_POKEMON",
+        payload: json.data,
+      });
     } catch (error) {
-      console.log(error)
+      console.log(error);
     }
-
-  }
+  };
 }
-export function filterByType(payload) {
+export function applyFilter(payload) {
   return {
-    type: "FILTER_BY_TYPE",
+    type: "APPLY_FILTERS",
     payload,
   };
 }
-export function filterCreate(payload){
-  return{
-    type:"FILTER_CREATE",
-    payload
+export function postPokemon(payload) {
+  return async function (dispath) {
+    try {
+      const data = await axios.post("http://localhost:3001/pokemons", payload);
+      return data; 
+    } catch (error) {
+      console.log(error)
+    }
+  };
+}
+export function getDetail(id){
+  return async function (dispath){
+    try {
+      const json = await axios("http://localhost:3001/pokemons/" + id);
+      return dispath({
+        type:"GET_DETAIL",
+        payload:json.data
+      }) 
+    } catch (error) {
+      console.log(error)
+    }
   }
 }
-export function orderByName(payload){
+export function refreshDetail(payload){
   return{
-    type:"ORDER_BY_NAME",
-    payload
-  }
-}
-export function orderByPower(payload){
-  return{
-    type:"ORDER_BY_POWER",
-    payload
-  }
-}
-export function applyFilter(payload){
-  return{
-    type:"APPLY_FILTERS",
+    type:"REFRESH_DETAIL",
     payload
   }
 }

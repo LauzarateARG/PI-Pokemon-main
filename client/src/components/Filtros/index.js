@@ -17,7 +17,6 @@ export default function Filtros() {
   function handlerSubmit(e) {
     e.preventDefault();
     dispatch(applyFilter(filter));
-    console.log(filter);
   }
 
   function handlerChange(e) {
@@ -25,36 +24,35 @@ export default function Filtros() {
     setFilter({
       ...filter,
       [e.target.name]:
-        e.target.value === "All Pokemons"
-          ? null
-          : e.target.value === "true"
-          ? true
-          : e.target.value === "false"
-          ? false
-          : e.target.value
+        e.target.value === "All Pokemons" ? null: e.target.value
     });
+  }
+
+  function handlerReset(){
+    setFilter({
+      alf: null,
+      attack: null,
+      origin: null,
+      type: "",
+    })
   }
 
   //-------------------------------------------------------------------------------------------------------------
 
   useEffect(() => {
     dispatch(getTypes());
-  }, []);
+  }, [dispatch]);
 
   return (
     <form onSubmit={(e) => handlerSubmit(e)}>
-      <button> volver a cargar pokemon </button>
+      <button onClick={handlerReset}> volver a cargar pokemon </button>
 
-      <select name="alf" onChange={(e) => handlerChange(e)}>
+      <select name="fill" onChange={(e) => handlerChange(e)}>
         <option value={null}> All Pokemons </option>
-        <option value={true}> A-Z </option>
-        <option value={false}> Z-A </option>
-      </select>
-
-      <select name="attack" onChange={(e) => handlerChange(e)}>
-        <option value={null}> All Pokemons </option>
-        <option value={true}> Ascendente </option>
-        <option value={false}> Descendente </option>
+        <option value="AZ"> A-Z </option>
+        <option value="ZA"> Z-A </option>
+        <option value="F+"> fuerza+ </option>
+        <option value="F-"> fuerza- </option>
       </select>
 
       <select name="origin" onChange={(e) => handlerChange(e)}>
