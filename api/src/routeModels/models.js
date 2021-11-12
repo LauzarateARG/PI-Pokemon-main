@@ -1,5 +1,5 @@
 const axios = require("axios");
-const { Pokemon, Tipo } = require("../db");
+const { Pokemon, Type } = require("../db");
 
 module.exports = {
   getApiData: async () => {
@@ -41,7 +41,7 @@ module.exports = {
   getDBData: async () => {
     return await Pokemon.findAll({
       include: {
-        model: Tipo,
+        model: Type,
         attributes: ["name"],
         through: {
           attributes: [],

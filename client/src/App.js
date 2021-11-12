@@ -10,11 +10,11 @@ function App() {
   return (
     <BrowserRouter>
       <div className="App">
-          <Route exact path = "/" component={landingPage} />
-          <Route path = "/home" component={NavBar}/>
-          <Route exact path = "/home" component={Home} />
-          <Route exact path = "/home/Pokemon" component={PokemonCreate}/>
-          <Route exact path = "/home/:id" component={Detail} />
+          <Route exact path = "/" component = { landingPage } />
+          <Route path = "/home" component = { NavBar }/>
+          <Route exact path = "/home" component = { Home } />
+          <Route exact path = "/home/Create" component = { PokemonCreate }/>
+          <Route exact path = "/home/Pokemon/:id" component = { Detail } />
       </div>
     </BrowserRouter>
   );

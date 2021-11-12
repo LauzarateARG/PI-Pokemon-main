@@ -6,7 +6,7 @@ export default function Card({name,img,type,createInDB}){
     <div className={style.card}>
         <h3>{name}</h3>
         <img className={createInDB ? style.imgDb: style.img} src={img} alt="img not found"/>
-        <h4>{ type } </h4>
+        <h4>{ createInDB ? type.map(el=> el.name + " ") : type.map( el => " "+el+" ") } </h4>
     </div>
     )
 }

@@ -22,19 +22,6 @@ export function getTypes() {
     }
   };
 }
-export function searchPokemon(name) {
-  return async function (dispath) {
-    try {
-      var json = await axios("http://localhost:3001/pokemons?name=" + name);
-      return dispath({
-        type: "GET_NAME_POKEMON",
-        payload: json.data,
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  };
-}
 export function applyFilter(payload) {
   return {
     type: "APPLY_FILTERS",

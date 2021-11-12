@@ -4,7 +4,7 @@ const { Router } = require("express");
 // Ejemplo: const authRouter = require('./auth.js');
 const { getApiData, getDBData, getTipo, getDBTypes } = require("../routeModels/models.js");
 
-const { Tipo, Pokemon } = require("../db");
+const { Type, Pokemon } = require("../db");
 const router = Router();
 // Configurar los routers
 // Ejemplo: router.use('/auth', authRouter);
@@ -51,13 +51,15 @@ router.get("/tipos", async (req, res) => {
   try {
     const pokeTipos = await getTipo();
     pokeTipos.forEach((el) => {
-      Tipo.findOrCreate({
+      Type.findOrCreate({
         where: { name: el },
       });
     });
-    const pokeTiposDB = await Tipo.findAll();
+    const pokeTiposDB = await Type.findAll();
     res.status(200).send(pokeTiposDB);
-  } catch (error) {}
+  } catch (error) {
+    console.log(error)
+  }
 });
 
 router.post("/pokemons", async (req, res) => {
@@ -75,11 +77,11 @@ router.post("/pokemons", async (req, res) => {
     createInDB,
   });
 
-  let typeDb = await Tipo.findAll({
+  let typeDb = await Type.findAll({
     where: { name: type },
   });
 
-  createPokemon.addTipo(typeDb);
+  createPokemon.addType(typeDb);
   res.status(200).send("Pokemon creado con exito");
 });
 

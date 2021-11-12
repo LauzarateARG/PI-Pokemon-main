@@ -8,7 +8,7 @@ export default function NavBar(){
             <Link to="/home"> Pokemons </Link>
             </div>
             <div className={styles.link}>
-            <Link to="/home/Pokemon"> Crear Pokemon </Link>
+            <Link to="/home/Create"> Crear Pokemon </Link>
             </div>
         </div>
     )

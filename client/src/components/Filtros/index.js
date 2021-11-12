@@ -1,16 +1,17 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { getTypes, applyFilter,getPokemons } from "../../actions";
+import { getTypes, applyFilter } from "../../actions";
 import { useState, useEffect } from "react";
 
 export default function Filtros() {
   const dispatch = useDispatch();
+  const search = useSelector((state)=> state.filters.search)
   const allTypes = useSelector((state) => state.types);
   const [filter, setFilter] = useState({
-    alf: null,
-    attack: null,
+    fill: null,
     origin: null,
     type: "",
+    search:search
   });
   //-------------------------------------------funciones---------------------------------------------------------
 
@@ -23,34 +24,33 @@ export default function Filtros() {
     e.preventDefault();
     setFilter({
       ...filter,
-      [e.target.name]:
-        e.target.value === "All Pokemons" ? null: e.target.value
+      [e.target.name]: e.target.value 
     });
   }
 
   function handlerReset(e){
     setFilter({
-      alf: null,
-      attack: null,
+      fill: null,
       origin: null,
       type: "",
+      search:"",
     })
     dispatch(applyFilter(filter))
-    dispatch(getPokemons())
   }
 
   //-------------------------------------------------------------------------------------------------------------
 
   useEffect(() => {
     dispatch(getTypes());
+    console.log(search)
   }, [dispatch]);
 
   return (
     <form onSubmit={(e) => handlerSubmit(e)}>
-      <button onClick={e=>handlerReset(e )}> volver a cargar pokemon </button>
+      <button onClick={e=>handlerReset(e )}> Refresh </button>
 
       <select name="fill" onChange={(e) => handlerChange(e)}>
-        <option value={null}> All Pokemons </option>
+        <option value="ID"> All Pokemons </option>
         <option value="AZ"> A-Z </option>
         <option value="ZA"> Z-A </option>
         <option value="F+"> fuerza+ </option>
@@ -64,7 +64,7 @@ export default function Filtros() {
       </select>
 
       <select name="type" onChange={(e) => handlerChange(e)}>
-        <option value={null}> All Pokemons </option>
+        <option value=""> All Pokemons </option>
         {allTypes?.map((el) => {
           return <option value={el.name}> {el.name} </option>;
         })}

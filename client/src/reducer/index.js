@@ -6,6 +6,7 @@ const initialState = {
     fill: null,
     origin: null,
     type: "",
+    search:""
   },
 };
 
@@ -27,12 +28,6 @@ function rootReducer(state = initialState, action) {
       return {
         ...state,
         filters: action.payload,
-      };
-
-    case "GET_NAME_POKEMON":
-      return {
-        ...state,
-        pokemons: action.payload,
       };
       
     case "GET_DETAIL":

@@ -1,30 +1,48 @@
 import React from "react";
-import { useState } from "react";
-import { useDispatch } from "react-redux";
-import { searchPokemon } from "../../actions/index";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { applyFilter} from "../../actions/index";
 
 export default function SearchBar() {
   const dispatch = useDispatch();
-  const [name, setName] = useState("");
+  const state = useSelector((state)=> state.filters);
+  const [filter, setFilter] = useState({
+    fill: state.fill,
+    origin: state.origin,
+    type: state.type,
+    search:""
+  });
 
   //-----------------------------------------------Funciones------------------------------------------------------------
 
   function handlerInputChange(e) {
     e.preventDefault();
-    setName(e.target.value);
-    console.log(name)
+    setFilter({
+      ...filter,
+      search:e.target.value
+    });
   }
 
   function handlerSubmit(e) {
-    dispatch(searchPokemon(name));
+    dispatch(applyFilter(filter));
+    document.getElementById("search").value = "";
   }
-
+  
+  useEffect(()=>{
+    setFilter({
+      ...filter,
+      fill: state.fill,
+      origin: state.origin,
+      type: state.type,
+    });
+  },[state])
   //--------------------------------------------------------------------------------------------------------------------
   return (
     <div>
         <input
           type="text"
           placeholder="Buscar..."
+          id="search"
           onChange={(e) => handlerInputChange(e)}
         />
 

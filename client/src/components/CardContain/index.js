@@ -35,12 +35,16 @@ export default function CardContain() {
   useEffect(() => {
     setPokemonFiltred(filtered(allPokemons,filter))
     console.log("todos los pokemons",pokemonFiltred)
-  },[useSelector(state => state.filters)]);
+  },[filter]);
 
 
   useEffect(() => {
     dispatch(refreshDetail([]))
   },[dispatch]);
+
+  useEffect(() =>{
+    dispatch(getPokemons()) 
+  },[allPokemons])
 
   //---------------------------------------------------------------------------------
 
@@ -50,8 +54,8 @@ export default function CardContain() {
       {currentPK?.map((el) => {
         return (
           <Fragment>
-            <Link to={"/home/" + el.id}>
-              <Card name={el.name} img={ el.gif ? el.gif : img.egg } type={el.type} createInDB={el.createInDB} />
+            <Link to={"/home/Pokemon/" + el.id}>
+              <Card name={el.name} img={ el.gif ? el.gif : img.egg } type={el.createInDB ? el.types: el.type} createInDB={el.createInDB} />
             </Link>
           </Fragment>
         );
