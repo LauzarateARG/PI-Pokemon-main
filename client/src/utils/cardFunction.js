@@ -10,7 +10,7 @@ export function filtered(data, accFilt) {
 
     if (accFilt.type.length > 0) {
       console.log("data filtrada de type", dataFiltered)
-      dataFiltered = dataFiltered.filter((el) => el.type.includes(accFilt.type));
+      dataFiltered = dataFiltered.filter((el) => el.createInDB ? el.types.includes(accFilt.type) : el.type.includes(accFilt.type));
       console.log("data filtrada de type",dataFiltered)
     }
 

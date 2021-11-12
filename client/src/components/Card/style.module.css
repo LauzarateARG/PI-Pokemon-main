@@ -1,16 +1,42 @@
 .card{
+    display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: center;
-    background-color: red;
-    border-radius: 20px;
-    height: 200px;
+    background-color: white;
+    border-radius: 60px;
+    height: 300px;
     width: 300px;
+    contain: content;
+    border-style: solid;
+    border-color: black;
     
 }
-
 .img{
     width: auto;
 }
 .imgDb{
     width: 100px;
+}
+
+.imgCon{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.title{
+    background-color: rgba(255, 0, 0, 0.424);
+    position: relative;
+    top: -45px;
+    width: 100%;
+    
+}
+
+.types{
+
+    background-color: rgba(255, 0, 0, 0.424);
+    position: relative;
+    bottom: -20px;
+    width: 100%;
 }

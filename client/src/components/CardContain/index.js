@@ -1,6 +1,6 @@
 import React from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { useState, useEffect, Fragment } from "react";
+import { useState, useEffect } from "react";
 import { getPokemons, refreshDetail } from "../../actions";
 import { Link } from "react-router-dom";
 import img from "../../assets/img.js"
@@ -53,11 +53,11 @@ export default function CardContain() {
     <div className={style.cards}>
       {currentPK?.map((el) => {
         return (
-          <Fragment>
+          <div className={style.card}>
             <Link to={"/home/Pokemon/" + el.id}>
-              <Card name={el.name} img={ el.gif ? el.gif : img.egg } type={el.createInDB ? el.types: el.type} createInDB={el.createInDB} />
+              <Card name={el.name} img={ el.gif ? el.gif : img.egg } type={el.createInDB ? el.types : el.type} createInDB={el.createInDB} />
             </Link>
-          </Fragment>
+          </div>
         );
       })}
       </div>

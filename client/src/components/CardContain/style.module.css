@@ -4,9 +4,12 @@
 }
 .cards{
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    grid-gap: -200px;
-    left: 20px;
+    grid-template-columns: repeat(2,auto);
+    grid-gap: 60px;
+    align-content: center;
+    justify-content: center;
+    grid-auto-rows: 260px;
+    margin-top: 20px;
 }
 
 .paginado{
@@ -15,4 +18,5 @@
     align-items: center;
     justify-content: center;
     width: 100%;
+    margin-top: 50px;
 }

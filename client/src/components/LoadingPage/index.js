@@ -5,7 +5,7 @@ import style from "./style.module.css"
 export default function index() {
     return (
         <div className={style.loading}>
-            <img  src={img.gifLoading} />
+            <img  className={style.gif} src={img.gifLoading} />
         </div>
     )
 }

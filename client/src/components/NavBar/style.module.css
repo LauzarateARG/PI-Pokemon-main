@@ -2,7 +2,7 @@
     display: flex;
     flex-direction: row;
   background-color: #ee1b25;
-  width: 100%;
+  width: 99%;
   height: 100px;
   padding: 10px 10px 0;
 }

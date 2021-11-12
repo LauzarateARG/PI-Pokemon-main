@@ -29,14 +29,11 @@ export default function Home() {
   }else{
         return (
       <div className = {styles.Home}>
-        <div>
-          <Filtros 
-          />
+        <div className={styles.cardC}>
+          <Filtros />
           <SearchBar />
-        </div>
-        <div>
           < CardContain />
-        </div>
+          </div>
       </div>
     );
   }
